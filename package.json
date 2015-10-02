@@ -1,0 +1,20 @@
+{
+  "name": "workshop-arch-front-scm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "serve -p 3000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/carlosvillu/workshop-arch-front-scm.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/carlosvillu/workshop-arch-front-scm#readme",
+  "devDependencies": {
+    "serve": "^1.4.0"
+  }
+}

@@ -1,0 +1,363 @@
+<!doctype html>
+		<html lang="en">
+
+			<head>
+				<meta charset="utf-8">
+				<title>Schibsted FrontEnd Architecture</title>
+
+				<meta name="apple-mobile-web-app-capable" content="yes" />
+				<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+				<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+				<link rel="icon" type="image/ico" href="./favicon.ico">
+				<link rel="stylesheet" href="css/reveal.css">
+				<link rel="stylesheet" href="css/theme/night.css" id="theme">
+				<link rel="stylesheet" href="css/custom.css">
+
+				<!-- Code syntax highlighting -->
+				<link rel="stylesheet" href="lib/css/zenburn.css">
+
+				<!-- Printing and PDF exports -->
+				<script>
+					var link = document.createElement( 'link' );
+					link.rel = 'stylesheet';
+					link.type = 'text/css';
+					link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+					document.getElementsByTagName( 'head' )[0].appendChild( link );
+				</script>
+
+				<!--[if lt IE 9]>
+				<script src="lib/js/html5shiv.js"></script>
+				<![endif]-->
+			</head>
+
+			<body>
+
+				<div class="reveal">
+
+					<!-- Any section element inside of this container is displayed as a slide -->
+					<div class="slides">
+						<section 	data-background-color="#ffffff"
+											data-background-image="imgs/schibsted-spain.png"
+											data-background-size="25%"
+											data-background-position="50% 50%">
+		        </section>
+		        <section>
+							<h2>Schibsted <span style="color: #999999;">FrontEnd Architecture</span></h2>
+							<h4 style="color: #cdcdcd">Component-based UI</h4>
+		          <div style="font-size: 16px">
+								<div style="margin: 50px 0 10px 0;">
+									<a href="http://carlosvillu.com" target="_blank">Carlos Villuedas</a> |
+									<a href="http://twitter.com/carlosvillu" target="_blank">@carlosvillu</a>
+								</div>
+								<div>
+									<a href="https://github.com/nucliweb" target="_blank">Joan Leon</a> |
+									<a href="http://twitter.com/nucliweb" target="_blank">@nucliweb</a>
+								</div>
+
+		          </div>
+						</section>
+
+		        <section>
+		          <h3>What is Schibsted?</h3>
+		          <img data-src="imgs/productos.png">
+		        </section>
+
+		        <section 	data-background="imgs/monolith-minion.png"
+											data-background-size="10%"
+											data-background-position="85% 90%">
+							<h2>Motivation</h2>
+              <p>Out with the monolith in frontend architecture</p>
+		        </section>
+
+		        <section 	data-background="imgs/minion-components.png"
+											data-background-size="20%"
+											data-background-position="85% 50%"
+											style="text-align: left">
+		          <h2>Where we're going</h2>
+		          <p>In with a fully reusable UI with components</p>
+		        </section>
+
+		        <section 	data-background="imgs/minion-requiretmend.png"
+											data-background-size="20%"
+											data-background-position="95% 50%"
+											style="text-align: left">
+		          <h2>Requirements</h2>
+		          <div style="text-align: left">
+		            <ul>
+		              <li>Design oriented to components (smart objects in PS)</li>
+		              <li>Out with spaghetti code, in with clean code in frontend!</li>
+		              <li>Backend oriented to APIs (micro-services)</li>
+		            </ul>
+		            <ul class="fragment">
+		              <li>Everything is open source (or as much as possible)</li>
+		              <li>UI technology gets old quickly</li>
+		            </ul>
+		          </div>
+		        </section>
+
+		        <section>
+		          <h2>Free FE from BE monolith!</h2>
+		          <img data-src="imgs/graphic.png">
+		        </section>
+
+		        <section	data-background="imgs/minion-arch.png"
+											data-background-size="20%"
+											data-background-position="85% 95%">
+		          <h3>Maximal reuse of components</h3>
+		          <img data-src="imgs/arch-minion.png">
+		        </section>
+
+		        <section	data-background="imgs/minion-work-this.png"
+											data-background-size="20%"
+											data-background-position="85% 95%">
+		          <h2>How we've done it</h2>
+		          <ul>
+		            <li>uniform code</li>
+		            <li>service discovery</li>
+		            <li>reusable code</li>
+		            <li>UI-free solution</li>
+		          </ul>
+		        </section>
+
+		        <section>
+		          <section><h2>Uniform code</h2></section>
+		          <section data-background="/imgs/generator-github.png"
+		          					data-background-position="50% 0">
+		          </section>
+		          <section>
+		            <h2>Generator</h2>
+		            <ul>
+		              <li>tests</li>
+		              <li>documentation</li>
+		              <li>common tasks</li>
+		            </ul>
+		            <pre><code>
+npm install -g @schibstedspain/generator-sui-react
+
+</code></pre>
+		          </section>
+
+		          <section  data-background="/imgs/pre-commit-rules.png"
+		          					data-background-position="50% 0">
+		          </section>
+		          <section>
+		            <h2>Precommit rules</h2>
+		            <ul>
+		              <li>lint SCSS</li>
+		              <li>lint JS</li>
+		              <li>Babel setting</li>
+		              <li>editor setting</li>
+		              <li>versioning</li>
+		            </ul>
+		            <pre><code>
+npm install @schibstedspain/frontend-pre-commit-rules
+
+</code></pre>
+		          </section>
+		        </section>
+
+		        <section>
+              <section><h2><i>Service discovery</i></h2></section>
+		          <section  data-background="/imgs/npm-enterprise.png"
+		          					data-background-position="50% 0">
+		          </section>
+		          <section  data-background="/imgs/sui-organization.png"
+		          					data-background-position="50% 0">
+		          </section>
+		        </section>
+
+		        <section>
+		          <section><h2>Reusable code</h2></section>
+		          <section>
+		            <h2>Container components</h2>
+		            <img data-src="imgs/container-components.png" />
+		          </section>
+		          <section><h2>SUI components</h2></section>
+		          <section><h2>re, ji, mt *-components</h2></section>
+		          <section><h2>"Themable" components (SUIT standard)</h2></section>
+		          <section>
+		            <h2>Basic theme</h2>
+		            <pre><code>
+npm install @schibstedspain/theme-basic
+
+</code></pre>
+		          </section>
+		          <section>
+		            <h2>Re-theme, ij-theme, mt-theme</h2>
+                <a href="http://scm-spain.github.io/re-theme-fotocasa/"><i>Fotocasa</i> theme</a>
+		            <pre><code>
+npm install @schibstedspain/re-theme-fotocasa
+
+</code></pre>
+		          </section>
+		        </section>
+
+		        <section>
+		          <section><h2>UI-free solution</h2></section>
+		          <section>
+		          	<img data-src="imgs/js-frameworks-monions.jpg" />
+		          </section>
+		          <section>
+		            <h2>How we've done it</h2>
+
+
+							  <pre><code>
+npm install @schibstedspain/real-estate
+
+</code></pre>
+		          </section>
+		          <section	data-background="imgs/minion-isomorphic.png"
+												data-background-size="17%"
+												data-background-position="99% 50%">
+
+
+
+							  <pre><code>
+	RealEstate.get('autocompleted_search_use_case')
+	.execute({query 'barcelon'})
+	.then(locations => {
+	    // location is an array of LocationValueObject
+	})
+	.catch(err => {
+	    // err is an instance of Error
+	});
+</code></pre>
+		            <p>This is isomorphic code!!</p>
+		          </section>
+		          <section>
+		            <h2>What should go inside of that?!</h2>
+		            <ul>
+		              <li>calls to other systems</li>
+		              <li>validations</li>
+		              <li>calculations</li>
+		            </ul>
+		          </section>
+		        </section>
+
+		        <section>
+		          <section><h2>Problems...</h2></section>
+		          <section	data-background="imgs/minion-i18n.png"
+												data-background-size="30%"
+												data-background-position="50% 90%">
+								<h2>I18N for open source code</h2>
+							</section>
+		          <section>
+		            <h2>Our answer: Rosetta</h2>
+		            <a href="https://github.com/SUI-Components/rosetta">https://github.com/SUI-Components/rosetta</a>
+		            <pre><code>
+npm install @schibstedspain/rosetta
+
+</code></pre>
+		          </section>
+		          <section>
+		            <pre><code>
+	import i18n from '@schibstedspain/rosetta';
+	import polyglot from '@schibstedspain/rosetta/lib/adapters/polyglot';
+
+	i18n.adapter = polyglot;
+	i18n.translations = {
+	    'HELLO_WORLD': 'Hola mundo!'
+	};
+
+	i18n.t('HELLO_WORLD') //=> Hola mundo!
+
+</code></pre>
+		          </section>
+		          <section>
+		            <pre><code>
+	import React from 'react';
+	import {rosetta} from '@schibstedspain/rosetta';
+
+	 @rosetta //=> This decorator allows us to update all components if there is a change of language
+	 class App extends React.Component {
+	    render(){
+	        <div></div>
+	    }
+	 }
+
+</code></pre>
+		          </section>
+		          <section	data-background="imgs/minion-tracking.png"
+												data-background-size="10%"
+												data-background-position="10% 0">
+								<h2>Tracking</h2>
+							</section>
+		          <section>
+		            <h2>Our answer: Suntory</h2>
+		            <a href="https://github.com/SUI-Components/suntory">https://github.com/SUI-Components/suntory</a>
+		            <pre><code>
+npm install @schibstedspain/suntory
+
+</code></pre>
+		          </section>
+		          <section>
+		            <pre><code>
+		import suntory from '@schibstedspain/suntory';
+
+		@suntory({
+		  'mouseover [data-click]': function(e) { console.log(e.target) }
+		})
+		class List extends React.Component {
+		  render() {
+		    return (
+		        <div>
+		        </div>
+		    )
+		  }
+		}
+		            </code></pre>
+		          </section>
+		        </section>
+	          <section	data-background="imgs/minion-dom.png"
+											data-background-size="12%"
+											data-background-position="50% 95%">
+							<h2>FYI, we use ReactJS to create the DOM</h2>
+						</section>
+
+						<section	data-background="imgs/minion-questons.png"
+											data-background-size="30%"
+											data-background-position="0 100%">
+							<h2>Questions?</h2>
+						</section>
+						<section	data-background="imgs/minion-thanks.png"
+											data-background-size="30%"
+											data-background-position="10% 100%">
+							<h2>Thank you!</h2>
+						</section>
+
+					</div>
+
+				</div>
+
+				<script src="lib/js/head.min.js"></script>
+				<script src="js/reveal.js"></script>
+
+				<script>
+
+					// Full list of configuration options available at:
+					// https://github.com/hakimel/reveal.js#configuration
+					Reveal.initialize({
+						controls: true,
+						progress: true,
+						history: true,
+						center: true,
+
+						transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+						// Optional reveal.js plugins
+						dependencies: [
+							{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+							{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+							{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+							{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+							{ src: 'plugin/zoom-js/zoom.js', async: true },
+							{ src: 'plugin/notes/notes.js', async: true }
+						]
+					});
+
+				</script>
+
+			</body>
+		</html>
