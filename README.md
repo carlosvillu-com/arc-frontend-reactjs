@@ -65,7 +65,7 @@ Componentes + UI reutilizable
   * Basic heme (npm i @schibstedspain/theme-basic)
   * re theme, ij theme, (npm i @schibstedspain/re-theme-fotocasa)
   
-### Independencia de la solucion
+### Independencia de la solución
 
 * Frameworks volátiles
 	
